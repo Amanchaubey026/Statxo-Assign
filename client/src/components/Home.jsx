@@ -9,7 +9,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import video from '../assets/datavideo.mp4';
+// import video from '../assets/datavideo.mp4';
 
 const Home = () => {
   const direction = useBreakpointValue({ base: 'column-reverse', md: 'row' });
@@ -36,14 +36,14 @@ const Home = () => {
                 position: 'absolute',
                 bottom: 1,
                 left: 0,
-                bg: 'blue.400',
+                bg: 'pink.400',
                 zIndex: -1,
               }}
             >
               Taskopia
             </Text>
             <br />{' '}
-            <Text color={'blue.400'} as={'span'}>
+            <Text color={'pink.600'} as={'span'}>
             Efficient Task Management made easier.
             </Text>
           </Heading>
@@ -53,11 +53,11 @@ const Home = () => {
           <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
             <Button
               rounded={'full'}
-              bg={'blue.400'}
+              bg={'pink.600'}
               color={'white'}
               onClick={handleLoginClick}
               _hover={{
-                bg: 'blue.500',
+                bg: 'pink.400',
               }}
             >
               Login
@@ -76,7 +76,7 @@ const Home = () => {
           loop
           style={{ borderRadius: '15px', maxWidth: '600px', maxHeight: '400px' }}
         >
-          <source src={video} type="video/mp4" />
+          <source src={'https://cdn.pixabay.com/video/2023/08/19/176794-856056410_large.mp4'} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </Flex>

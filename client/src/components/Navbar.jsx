@@ -59,7 +59,7 @@ const Navbar = () => {
         <Flex alignItems="center">
           <Menu>
             <MenuButton as={Button} rounded="full" variant="link" cursor="pointer" minW={0}>
-              <Avatar size="sm" src="" />
+              <Avatar size="sm" src="https://png.pngtree.com/element_our/20190529/ourmid/pngtree-flat-user-pattern-round-avatar-pattern-image_1200096.jpg" />
             </MenuButton>
             <MenuList>
               {isLoggedIn ? (
