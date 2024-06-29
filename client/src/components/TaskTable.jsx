@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { 
@@ -12,6 +13,9 @@ import {
   useToast, 
   Skeleton, 
   Stack,
+  Text,
+  Center,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import axios from 'axios';
 
@@ -21,18 +25,18 @@ const TaskTable = () => {
   const [error, setError] = useState(null);
   const toast = useToast();
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const response = await axios.get('https://statxo-assign.onrender.com/tasks/task');
-        setTasks(response.data.data || []); 
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchTasks = async () => {
+    try {
+      const response = await axios.get('https://statxo-assign.onrender.com/tasks/task');
+      setTasks(response.data.data || []); 
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchTasks();
   }, []);
 
@@ -97,21 +101,23 @@ const TaskTable = () => {
   }
 
   if (error) {
-    return <Box>Error: {error}</Box>;
+    return <Box><Text color="red.500">Error: {error}</Text></Box>;
   }
 
+  const tableVariant = useBreakpointValue({ base: "simple", md: "striped" });
+
   return (
-    <Box overflowX="auto" py={4}>
-      <Table variant="simple">
-        <Thead>
+    <Box overflowX="auto" py={4} px={2} maxWidth="100%" mx="auto">
+      <Table variant={tableVariant} size="md">
+        <Thead bg="teal.500">
           <Tr>
-            <Th>Quantity</Th>
-            <Th>Amount</Th>
-            <Th>Posting Year</Th>
-            <Th>Posting Month</Th>
-            <Th>Action Type</Th>
-            <Th>Action Name</Th>
-            <Th>Status</Th>
+            <Th color="white">Quantity</Th>
+            <Th color="white">Amount</Th>
+            <Th color="white">Posting Year</Th>
+            <Th color="white">Posting Month</Th>
+            <Th color="white">Action Type</Th>
+            <Th color="white">Action Name</Th>
+            <Th color="white">Status</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -125,6 +131,7 @@ const TaskTable = () => {
                 <Select
                   value={task.ActionType}
                   onChange={(e) => handleEdit(task._id, 'ActionType', e.target.value)}
+                  bg="white"
                 >
                   <option value="Price-Negotiation">Price-Negotiation</option>
                   <option value="Scrap">Scrap</option>
@@ -136,6 +143,7 @@ const TaskTable = () => {
                 <Select
                   value={task.ActionName}
                   onChange={(e) => handleEdit(task._id, 'ActionName', e.target.value)}
+                  bg="white"
                 >
                   <option value="Rebate">Rebate</option>
                   <option value="Refund">Refund</option>

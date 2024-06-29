@@ -15,7 +15,7 @@ const Navbar = () => {
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     const userData = JSON.parse(localStorage.getItem('user'));
-    if (token) {
+    if (token && userData) {
       setIsLoggedIn(true);
       setUser(userData);
     } else {
@@ -36,7 +36,7 @@ const Navbar = () => {
       duration: 5000,
       isClosable: true,
     });
-    navigate('/login'); 
+    navigate('/login');
   };
 
   return (
@@ -52,7 +52,7 @@ const Navbar = () => {
         <HStack spacing={8} alignItems="center">
           <Box>
             <Link to={'/'}>
-            <Image src={`https://www.statxo.com/wp-content/uploads/2022/04/Logo.png`} alt="Statxo" boxSize="150px" objectFit="contain" />
+              <Image src={`https://www.statxo.com/wp-content/uploads/2022/04/Logo.png`} alt="Statxo" boxSize="150px" objectFit="contain" />
             </Link>
           </Box>
         </HStack>
@@ -64,7 +64,7 @@ const Navbar = () => {
             <MenuList>
               {isLoggedIn ? (
                 <>
-                  <MenuItem>{user.email}</MenuItem>
+                  <MenuItem>{user?.email}</MenuItem>
                   <MenuDivider />
                   <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </>
