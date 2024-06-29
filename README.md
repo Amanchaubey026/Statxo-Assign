@@ -14,6 +14,20 @@ Frontend: https://statxo-assign.vercel.app/
 
 Backend: https://statxo-assign.onrender.com
 
+## Snapshots
+
+![image](https://github.com/Amanchaubey026/Statxo-Assign/assets/98681520/c46c01d5-c6e3-4f3b-9f6d-76513a2fd559)
+
+![image](https://github.com/Amanchaubey026/Statxo-Assign/assets/98681520/f46b9099-255c-4fef-bcb3-9b46d770282a)
+
+![image](https://github.com/Amanchaubey026/Statxo-Assign/assets/98681520/cb3d260f-273a-4264-b784-1b24426bd856)
+
+![image](https://github.com/Amanchaubey026/Statxo-Assign/assets/98681520/b7117a7d-f711-476d-9596-1240f7a719a8)
+
+
+
+
+
 ## Directory Structure
 
 ```
