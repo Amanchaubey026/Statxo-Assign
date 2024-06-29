@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import TaskTable from './components/TaskTable';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
         <Route path="/logout" element={<Logout/>} />
         <Route path="/tasks" element={<TaskTable/>} />
       </Routes>
+      <Footer/>
+      
     </>
   );
 };
