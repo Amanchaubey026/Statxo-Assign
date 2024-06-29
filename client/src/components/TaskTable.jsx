@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { 
   Box, 
   Table, 
@@ -14,7 +12,6 @@ import {
   Skeleton, 
   Stack,
   Text,
-  Center,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import axios from 'axios';
@@ -64,7 +61,7 @@ const TaskTable = () => {
         headers: { Authorization: `Bearer ${authToken}` }
       };
 
-      const response = await axios.patch(`https://statxo-assign.onrender.com/tasks/update/${taskId}`, requestBody, config);
+      await axios.patch(`https://statxo-assign.onrender.com/tasks/update/${taskId}`, requestBody, config);
 
       toast({
         title: "Task Updated",
@@ -77,9 +74,6 @@ const TaskTable = () => {
       setTasks(tasks.map(task => task._id === taskId ? { ...task, [field]: value } : task));
     } catch (error) {
       console.error('Edit error', error);
-      console.error('Error Response Data:', error.response.data);
-      console.error('Error Response Status:', error.response.status);
-      console.error('Error Response Headers:', error.response.headers);
       toast({
         title: "Update Failed",
         description: error.response?.data?.message || "There was an error updating the task.",
@@ -89,6 +83,8 @@ const TaskTable = () => {
       });
     }
   };
+
+  const tableVariant = useBreakpointValue({ base: "simple", md: "striped" });
 
   if (loading) {
     return (
@@ -104,12 +100,10 @@ const TaskTable = () => {
     return <Box><Text color="red.500">Error: {error}</Text></Box>;
   }
 
-  const tableVariant = useBreakpointValue({ base: "simple", md: "striped" });
-
   return (
     <Box overflowX="auto" py={4} px={2} maxWidth="100%" mx="auto">
       <Table variant={tableVariant} size="md">
-        <Thead bg="teal.500">
+        <Thead bg="pink.500">
           <Tr>
             <Th color="white">Quantity</Th>
             <Th color="white">Amount</Th>
