@@ -5,7 +5,7 @@ import axios from 'axios';
 const Logout = () => {
   const handleLogout = async () => {
     try {
-      await axios.post('/users/logout');
+      await axios.post('https://statxo-assign.onrender.com/users/logout');
       console.log('Logout successful');
     } catch (error) {
       console.error('Logout error', error);

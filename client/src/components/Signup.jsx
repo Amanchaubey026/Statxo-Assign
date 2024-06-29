@@ -45,7 +45,7 @@ const Signup = () => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/users/register', { name, email, password });
+      const response = await axios.post('https://statxo-assign.onrender.com/users/register', { name, email, password });
       toast({
         title: 'Signup successful',
         description: response.data.message,

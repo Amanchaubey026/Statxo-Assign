@@ -24,7 +24,7 @@ const TaskTable = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/tasks/task');
+        const response = await axios.get('https://statxo-assign.onrender.com/tasks/task');
         setTasks(response.data.data || []); 
       } catch (err) {
         setError(err.message);
@@ -60,7 +60,7 @@ const TaskTable = () => {
         headers: { Authorization: `Bearer ${authToken}` }
       };
 
-      const response = await axios.patch(`http://localhost:5000/tasks/update/${taskId}`, requestBody, config);
+      const response = await axios.patch(`https://statxo-assign.onrender.com/tasks/update/${taskId}`, requestBody, config);
 
       toast({
         title: "Task Updated",

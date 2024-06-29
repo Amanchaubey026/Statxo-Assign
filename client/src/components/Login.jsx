@@ -38,7 +38,7 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/users/login', { email, password });
+      const response = await axios.post('https://statxo-assign.onrender.com/users/login', { email, password });
       const { accessToken, data } = response.data;
 
       // Save token and user details to local storage
