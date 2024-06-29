@@ -103,18 +103,29 @@ const Signup = () => {
           )}
         </FormControl>
         <Button
-          colorScheme="blue"
+          rounded={"full"}
+          bg={"pink.600"}
+          color={"white"}
           onClick={handleSignup}
           isLoading={isLoading}
           width="100%" 
+          _hover={{
+            bg: "pink.400",
+          }}
         >
           SignUp
         </Button>
+        
         <Button
-          colorScheme="blue"
+          rounded={"full"}
+          bg={"pink.600"}
+          color={"white"}
           onClick={handlenaviagte}
           isLoading={isLoading}
           width="100%"
+          _hover={{
+            bg: "pink.400",
+          }}
         >
           Login
         </Button>
